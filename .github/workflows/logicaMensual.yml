@@ -48,8 +48,8 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@v2
       with:
-        commit_message: "Datos Guatemala"
-        branch: master
+        commit_message: "Datos Diarios Vacunacion Chile"
+        branch: main
         # Optional glob pattern of files which should be added to the commit
         #file_pattern: /
 
@@ -58,6 +58,6 @@ jobs:
 
         # Optional commit user and author settings
         commit_user_name: Actions Bot
-        commit_user_email: hectorflores329@gmail.com
-        commit_author: DataIntelligence BOT <hectorflores329@gmail.com>
+        commit_user_email: ianmeza29@gmail.com
+        commit_author: DataIntelligence BOT <ianmeza29@gmail.com>
         push_options: '--force'
