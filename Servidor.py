@@ -37,7 +37,7 @@ def UpdateDatabase():
     salida1 = pd.merge(Tprimera, Tsegunda, on = ["Codigo comuna","Fecha"])
     salida2 = pd.merge(salida1, T_unica, on = ["Codigo comuna","Fecha"])
 
-    salida2.to_excel("Vacuna/Vacunacion_Consolidado.xlsx")
+    salida2.to_excel("Vacuna/Vacunacion_Consolidado.xlsx", index = False)
     print("Hola")
     return
 
