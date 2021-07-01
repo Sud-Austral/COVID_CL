@@ -10,7 +10,7 @@ def UpdateDatabase():
 
     #Archivo Regiones
 
-    regiones = pd.read_excel("CodRegionesCL.xlsx")
+    regiones = pd.read_excel("https://github.com/Sud-Austral/COVID_CL/blob/main/Hospitales/CodRegionesCL.xlsx?raw=true")
 
 
     #Lectura PCR
