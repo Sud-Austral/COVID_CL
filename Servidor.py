@@ -27,7 +27,7 @@ def UpdateDatabase():
 
     #Dosis única
     unica = pd.read_csv("https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto80/vacunacion_comuna_UnicaDosis.csv")
-    T_unica = pd.melt(primera, id_vars=["Region", "Codigo region", "Comuna", "Codigo comuna", "Poblacion"], var_name='Fecha', value_name='Dosis Única')
+    T_unica = pd.melt(unica, id_vars=["Region", "Codigo region", "Comuna", "Codigo comuna", "Poblacion"], var_name='Fecha', value_name='Dosis Única')
     del T_unica["Region"]
     del T_unica["Codigo region"]
     del T_unica["Comuna"]
