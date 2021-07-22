@@ -151,7 +151,7 @@ def UpdateDatabase():
 
     
     #--------------------------------------------------------#
-    # ------------------> Unión de tablas <------------------#
+    #-------------------> Unión de tablas <------------------#
     #--------------------------------------------------------#
 
     salida = pd.merge(pcrT, uciT, on = ['Codigo region', 'Fecha'], how = 'outer')
@@ -173,6 +173,39 @@ def UpdateDatabase():
 
     salida.to_excel("Hospitales/Hospitales.xlsx", index = False)
     
+
+    #Programa de Ventiladores, CamasHospitales, UCI por Edad
+    #Autor: Ian Meza
+    #Fecha: 22/07/2021
+
+    #--------------------------------------------------------#
+    #------------------->   UCI  Etario   <------------------#
+    #--------------------------------------------------------#
+
+    ucie = pd.read_csv("https://raw.githubusercontent.com/Sud-Austral/Datos/master/Chile/MinCiencia/Input-minCiencia/ReporteDiario/HospitalizadosUCIEtario.csv")
+    ucieT = pd.melt(ucie, id_vars=["Grupo de edad"], var_name='Fecha', value_name='Hospitalizados UCI Etario')
+    ucieT.to_excel("Hospitales/Hospitalizados_UCI_Etario.xlsx", index = False)
+
+
+    #--------------------------------------------------------#
+    #------------------->   Ventiladores  <------------------#
+    #--------------------------------------------------------#
+
+    vent = pd.read_csv("https://raw.githubusercontent.com/Sud-Austral/Datos/master/Chile/MinCiencia/Input-minCiencia/ReporteDiario/NumeroVentiladores.csv")
+    ventT = pd.melt(vent, id_vars=["Ventiladores"], var_name='Fecha', value_name='Cantidad de Ventiladores')
+    ventT = ventT.rename(columns={'Ventiladores':'Estado'})
+    ventT = ventT[ventT.Estado != 'total']
+    ventT.to_excel("Hospitales/Ventiladores.xlsx", index = False)
+
+
+    #--------------------------------------------------------#
+    #------------------->Camas  Hospitales<------------------#
+    #--------------------------------------------------------#
+
+    camas = pd.read_csv("https://raw.githubusercontent.com/Sud-Austral/Datos/master/Chile/MinCiencia/Productos/producto24-CamasHospital_Diario.csv")
+    camasT =  pd.melt(camas, id_vars=["Tipo de cama"], var_name='Fecha', value_name='Cantidad de camas')
+    camasT.to_excel("Hospitales/CamasHospital_Diario.xlsx", index = False)
+
     return
 
 #************************************Actualizar Datos de la organizacion*******************************************
