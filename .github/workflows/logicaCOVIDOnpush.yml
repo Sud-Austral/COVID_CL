@@ -25,7 +25,7 @@ jobs:
     - name: Creating secret JSON
       run: |
 
-        python Servidor.py
+        python ServidorCOVID.py
 
 
     - uses: stefanzweifel/git-auto-commit-action@v2
