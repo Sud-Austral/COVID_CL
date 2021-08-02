@@ -1,8 +1,7 @@
 name: Info Vacunacion CL
 
 on:
-    schedule:
-      - cron:  '0 */6 * * *'
+    push
 
 jobs:
   build:
@@ -42,7 +41,7 @@ jobs:
       run: |
         echo $TEXTO1$CODE1$TEXTO2$CODE2$TEXTO3$CODE3$TEXTO4$CODE4$TEXTO5 > key.json
 
-        python Servidor.py
+        python ServidorCOVID.py
 
         rm key.json
 
