@@ -21,13 +21,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
     - name: Creating secret JSON
       run: |
-
         python Servidor.py
-
-
+        python ServidorCOVID.py
     - uses: stefanzweifel/git-auto-commit-action@v2
       with:
         commit_message: "Datos Diarios Vacunacion Chile"
